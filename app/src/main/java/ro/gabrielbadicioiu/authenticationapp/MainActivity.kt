@@ -9,11 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import ro.gabrielbadicioiu.authenticationapp.feature_authentication.presentation.login_screen.LoginScreen
 import ro.gabrielbadicioiu.authenticationapp.feature_authentication.presentation.login_screen.LoginScreenViewModel
@@ -26,14 +23,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AuthenticationAppTheme {
-              //  val viewModel=getViewModel<LoginScreenViewModel>()
+                val viewModel=getViewModel<LoginScreenViewModel>()
                 Scaffold(modifier = Modifier.fillMaxSize()) {
                     Column(modifier = Modifier
                         .fillMaxSize()
                         .padding(it),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center) {
-                        LoginScreen()
+
+                        LoginScreen(viewModel)
                     }
                 }
 

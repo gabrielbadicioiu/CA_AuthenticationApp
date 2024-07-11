@@ -23,7 +23,7 @@ import ro.gabrielbadicioiu.authenticationapp.feature_authentication.presentation
 
 @Composable
 fun LoginScreen(
-/*viewModel: LoginScreenViewModel*/
+viewModel: LoginScreenViewModel
 )
 {
     Column(modifier = Modifier.fillMaxSize(),
@@ -32,8 +32,13 @@ fun LoginScreen(
         Image(painter = painterResource(id = R.drawable.ic_login), contentDescription ="login_logo" ,
             modifier = Modifier.size(220.dp))
         Spacer(modifier = Modifier.height(75.dp))
-        DefaultOutlinedTextField(label = "Email", icon = Icons.Default.MailOutline)
-        DefaultOutlinedTextField(label = "Password", icon =Icons.Default.Lock )
+        DefaultOutlinedTextField(label = "Email", icon = Icons.Default.MailOutline,true, viewModel.email){email->
+            viewModel.onEvent(LoginScreenEvent.EnteredEmail(email))
+        }
+        DefaultOutlinedTextField(label = "Password", icon =Icons.Default.Lock, false, viewModel.password){
+            password->
+            viewModel.onEvent(LoginScreenEvent.EnteredPassword(password))
+        }
         RememberForgotSection()//todo val checkbox
         SignUpTxt()
         SignInButton()

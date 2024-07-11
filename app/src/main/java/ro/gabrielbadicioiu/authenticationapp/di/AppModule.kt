@@ -6,13 +6,12 @@ import ro.gabrielbadicioiu.authenticationapp.feature_authentication.domain.use_c
 import ro.gabrielbadicioiu.authenticationapp.feature_authentication.presentation.login_screen.LoginScreenViewModel
 
 val appModule= module {
-    single{
-        val x:Int
-    }
+
     single {
         AuthenticationUseCases(get())
     }
     viewModel {
-        LoginScreenViewModel(get())
+        LoginScreenViewModel()
     }
+
     }
