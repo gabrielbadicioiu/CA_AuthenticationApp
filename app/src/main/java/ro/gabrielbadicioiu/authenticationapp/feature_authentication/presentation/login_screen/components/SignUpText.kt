@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SignUpTxt(
-    
+    onTextClick:()->Unit
 )
 {
     Box(modifier = Modifier
@@ -43,7 +43,7 @@ fun SignUpTxt(
                 text = "Create one",
                 style = TextStyle(fontWeight = FontWeight.Bold),
                 modifier = Modifier.clickable {
-                    /*TODO*/
+                    onTextClick()
                 }
             )
 

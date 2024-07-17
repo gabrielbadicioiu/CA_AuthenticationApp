@@ -7,11 +7,12 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun SignInButton(
-    modifier: Modifier=Modifier
+    modifier: Modifier=Modifier,
+    onButtonClick:()->Unit
 )
 {
     Button(modifier = modifier,
-        onClick = { /*TODO*/ }) {
+        onClick = { onButtonClick() }) {
         Text(text = "Sign In")
     }
 }
